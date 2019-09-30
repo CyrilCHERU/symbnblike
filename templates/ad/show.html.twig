@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <div class="ad-title" style="background-image: url({{ad.coverImage}})">
+    <div class="ad-title mb-4" style="background-image: url({{ad.coverImage}})">
         <div class="container">
             <h1 class="my-4">{{ ad.title }}</h1>
             <p>{{ ad.introduction }}</p>
@@ -15,11 +15,11 @@
             <a href="#" class="btn btn-primary">Réserver</a>
         </div>
     </div>
-    <div class="container mt-4">
+    <div class="container   mt-4">
         <div class="row">
-            <div class="col-md-8 mb-3">
+            <div class="col-md-8 mb-5">
                 {{ ad.content | raw }}
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for image in ad.images %}
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" class="{%if loop.first %}active{% endif %}"></li>
