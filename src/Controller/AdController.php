@@ -35,19 +35,22 @@ class AdController extends AbstractController
      * 
      * @return Response
      */
-    public function create(Request $request, ObjectManager $manager) {
+    public function create(Request $request, ObjectManager $manager)
+    {
 
         $ad = new Ad();
 
-        $form = $this->createForm( AdFormType::class, $ad);
+        $form = $this->createForm(AdFormType::class, $ad);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             //$manager = $this->getDoctrine()->getManager();
-            foreach($ad->getImages() as $image) {
+            foreach ($ad->getImages() as $image) {
                 $image->setAd($ad);
                 $manager->persist($image);
             }
+
+            $ad->setAuthor($this->getUser());
 
             $manager->persist($ad);
             $manager->flush();
@@ -65,7 +68,6 @@ class AdController extends AbstractController
         return $this->render('ad/new.html.twig', [
             'form' => $form->createView()
         ]);
-
     }
 
     /**
@@ -74,14 +76,15 @@ class AdController extends AbstractController
      *
      * @return Response
      */
-    public function edit(Ad $ad, Request $request, ObjectManager $manager){
+    public function edit(Ad $ad, Request $request, ObjectManager $manager)
+    {
 
         $form = $this->createForm(AdFormType::class, $ad);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             //$manager = $this->getDoctrine()->getManager();
-            foreach($ad->getImages() as $image) {
+            foreach ($ad->getImages() as $image) {
                 $image->setAd($ad);
                 $manager->persist($image);
             }
@@ -112,7 +115,8 @@ class AdController extends AbstractController
      * 
      * @return Response
      */
-    public function show(Ad $ad) {
+    public function show(Ad $ad)
+    {
         // recupération de l'annonce qui correspond au slug
         // $ad = $repo->findOneBySlug($slug);
 
@@ -120,6 +124,4 @@ class AdController extends AbstractController
             'ad' => $ad
         ]);
     }
-
-    
 }
