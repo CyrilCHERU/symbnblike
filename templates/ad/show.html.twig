@@ -17,10 +17,14 @@
 					euros</strong>
 				/ nuit
 			</p>
-			<a href="#" class="btn btn-primary">Réserver</a>
+			<a href="{{ path('booking_create', {'slug': ad.slug}) }}" class="btn btn-primary">Réserver</a>
 			{% if app.user and app.user == ad.author %}
-				<a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary">Modifier votre annonce</a>
-				<a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger" onclick="return confirm(`Etes vous sûr de vouloir supprimer cette annonce : {{ad.title}} ?`)">Supprimer l'annonce</a>
+				<a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-warning">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger" onclick="return confirm(`Etes vous sûr de vouloir supprimer cette annonce : {{ad.title}} ?`)">
+					<i class="fas fa-trash-alt"></i>
+				</a>
 			{% endif %}
 		</div>
 	</div>
@@ -74,5 +78,4 @@
 			</div>
 		</div>
 	</div>
-
 {% endblock %}

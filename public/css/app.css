@@ -37,3 +37,13 @@ h4>a:hover {
     max-width: 24px;
     max-height: 24px;
 }
+
+.m200 {
+    margin-bottom: 200 px;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+    background-color: firebrick !important;
+    color: #fff !important;
+}

@@ -22,7 +22,12 @@
 			<p class="card-text">{{ ad.introduction }}</p>
 			<a href="{{ url }}" class="btn btn-primary">En savoir plus</a>
 			{% if app.user and app.user == ad.author %}
-				<a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary mt-2">Modifier votre annonce</a>
+				<a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger" onclick="return confirm(`Etes vous sûr de vouloir supprimer cette annonce : {{ad.title}} ?`)">
+					<i class="fas fa-trash-alt"></i>
+				</a>
 			{% endif %}
 		</div>
 	</div>

@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Vous n'avez pas les droits requis pour accéder à cette ressource !
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center m-4">Alors, on essaye de resquiller ;) !!!</h1>
+		<div class="row justify-content-center m-4">
+			<div class="col-6 alert alert-danger m200">
+
+				<p>Vous n'avez pas les droits pour accèder à cette ressource !</p>
+
+			</div>
+		</div>
+		<a href="{{ path('homepage') }}" class="btn btn-primary">Retour à l'accueil</a>
+	</div>
+{% endblock %}
