@@ -28,7 +28,7 @@ class RegistrationType extends ApplicationType
                 'type' => PasswordType::class,
                 'invalid_message' => "Les mots de passe ne sont pas identiques, merci de recommencer !",
                 'first_options' => $this->getConfiguration("Mot de passe", "Choisissez un bon mot de passe"),
-                'second_options' => $this->getConfiguration("Confirmez le passe", "Resaisissez votre mot de passe")
+                'second_options' => $this->getConfiguration("Confirmez le mot de passe", "Resaisissez votre mot de passe")
             ])
             ->add('introduction', TextType::class, $this->getConfiguration("Introduction", "Résumez-vous ..."))
             ->add('description', TextareaType::class, $this->getConfiguration("Description", "Votre profile détaillé"));
